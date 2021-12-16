@@ -1,0 +1,57 @@
+---
+- hosts: localhost
+  remote_user: root
+  vars:
+    minimal_packages:
+      - sudo
+    user_to_create: qubetzl
+    # pip_virtualenv_path: "/root/ansible-pc/venv"
+    # pip_packages:
+    #   - name: python-apt
+    #     virtualenv: "{{ pip_virtualenv_path }}"
+
+  pre_tasks:
+    - name: Update APT cache
+      apt:
+        update_cache: true
+      changed_when: false
+
+  # FIXME: Start using the role, when the virtualenv option is working.
+  # Currently, if it is set we receive 'parameters are mutually exclusive: executable|virtualenv'
+  # Reference: https://github.com/geerlingguy/ansible-role-pip/issues/38
+  # roles:
+  #   - role: geerlingguy.pip
+  #     vars:
+  #       pip_virtualenv_path: "/root/ansible-pc/venv"
+  #       pip_install_packages: "{{ pip_packages }}"
+
+  tasks:
+    # - name: Ennusre pip_packages are installed.
+    #   pip:
+    #     name: "{{ item.name }}"
+    #     virtualenv: "{{ item.virtualenv }}"
+    #   loop: "{{ pip_packages }}"
+    - name: Make sure minimal packages are installed
+      apt:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ minimal_packages }}"
+
+    - name: Create user with sudo privilidges
+      user:
+        name: "{{ user_to_create }}"
+        append: true
+        groups:
+          - sudo
+        password: '{{ "tmppass" | password_hash("sha512") }}'
+        update_password: on_create
+        # generate_ssh_key: true
+        # ssh_key_bits: 4096
+    - name: Copy repository into user's home directory
+      copy:
+        src: /root/ansible-pc/
+        dest: /home/qubetzl/ansible-pc/
+        remote_src: true
+        owner: "{{ user_to_create }}"
+        group: "{{ user_to_create }}"
+        mode: 'u=rwx,g=r,o=r'
