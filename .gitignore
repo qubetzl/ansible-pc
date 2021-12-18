@@ -1,2 +1,8 @@
+# Dev env
 .cache
 .vagrant
+
+# During setup
+.collections
+.roles
+venv
