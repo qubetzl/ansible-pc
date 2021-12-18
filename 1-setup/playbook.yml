@@ -1,0 +1,31 @@
+---
+- hosts: localhost
+  remote_user: qubetzl
+  become: true
+  vars:
+    # https://wiki.debian.org/KDE
+    debian_repo_packages:
+      - task-kde-desktop
+      - sddm-theme-debian-breeze
+
+  pre_tasks:
+    - name: Update APT cache
+      apt:
+        update_cache: true
+      changed_when: false
+
+  # FIXME: Start using the role, when the virtualenv option is working.
+  # Currently, if it is set we receive 'parameters are mutually exclusive: executable|virtualenv'
+  # Reference: https://github.com/geerlingguy/ansible-role-pip/issues/38
+  # roles:
+  #   - role: geerlingguy.pip
+  #     vars:
+  #       pip_virtualenv_path: "/root/ansible-pc/venv"
+  #       pip_install_packages: "{{ pip_packages }}"
+
+  tasks:
+    - name: Make sure Debian repo packages are installed
+      apt:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ debian_repo_packages }}"
