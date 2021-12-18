@@ -7,5 +7,6 @@ apt-get install -y python3-venv python3-pip
 source venv/bin/activate
 pip3 install ansible
 
+ansible-galaxy collection install -r requirements.yml
 ansible-galaxy role install -r requirements.yml
 ansible-playbook 0-setup/playbook.yml
