@@ -6,7 +6,7 @@
     # https://wiki.debian.org/KDE
     debian_repo_packages:
       - task-kde-desktop
-      - sddm-theme-debian-breeze
+      # - sddm-theme-debian-breeze
 
   pre_tasks:
     - name: Update APT cache
