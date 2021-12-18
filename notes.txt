@@ -1,0 +1,12 @@
+ansible-playbook -i inventory.vagrant playbook.yml
+
+ansible-galaxy role install -r requirements.yml
+
+# pip3 install ansible 2>&1 | less
+
+# block:
+#   - name: Check if home directory exists
+#     stat:
+#       path: "/home/{{ user_to_create }}"
+#     register: stat_home
+#   - name: Get password for user
