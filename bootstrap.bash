@@ -4,6 +4,7 @@ set -euo pipefail
 apt-get update
 apt-get install -y git
 
-[ ! -d "venv" ] && git clone https://github.com/qubetzl/ansible-pc.git
+[ ! -d "ansible-pc" ] && git clone https://github.com/qubetzl/ansible-pc.git
 pushd ansible-pc
+git pull --rebase
 bash setup.bash
