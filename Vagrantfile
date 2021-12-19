@@ -65,8 +65,7 @@ SCRIPT
   $script_1 = <<-SCRIPT
     sudo -i
     cd /root/
-    wget https://raw.githubusercontent.com/qubetzl/ansible-pc/master/bootstrap.bash
-    bash bootstrap.bash
+    wget -qO- https://raw.githubusercontent.com/qubetzl/ansible-pc/master/bootstrap.bash | bash
 SCRIPT
   $script_2 = <<-SCRIPT
     sudo -i -u qubetzl
