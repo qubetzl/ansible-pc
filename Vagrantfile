@@ -85,9 +85,9 @@ SCRIPT
   config.vm.synced_folder ".", "/vagrant", disabled: true
   # VM constraints, so they are not as heavy
   config.vm.provider :virtualbox do |vbox|
-    # vbox.gui = true
-    # vbox.memory = 2048
-    vbox.memory = 512
+    vbox.gui = true
+    vbox.memory = 2048
+    # vbox.memory = 512
     # vbox.linked_clone = true
   end
 end
