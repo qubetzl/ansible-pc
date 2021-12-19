@@ -1,26 +1,7 @@
 ---
+- import_tasks: user.yml
 - name: Make sure Debian repo packages are installed
   apt:
     name: "{{ item }}"
     state: present
   loop: "{{ debian_repo_packages }}"
-
-- name: Create user with sudo privilidges
-  user:
-    name: "{{ user_to_create }}"
-    append: true
-    groups:
-      - sudo
-    password: '{{ "tmppass" | password_hash("sha512") }}'
-    update_password: on_create
-    shell: '/usr/bin/bash'
-    generate_ssh_key: true
-    ssh_key_bits: 4096
-- name: Copy repository into user's home directory
-  copy:
-    src: /root/ansible-pc/
-    dest: /home/qubetzl/ansible-pc/
-    remote_src: true
-    owner: "{{ user_to_create }}"
-    group: "{{ user_to_create }}"
-    mode: 'u=rwx,g=r,o=r'
