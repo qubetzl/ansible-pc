@@ -1,15 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if [ "$(id -u)" -eq 0 ]
-then
-bash 0-setup/0-setup.bash
-pushd /home/qubetzl/ansible-pc
-sudo -u qubetzl bash setup.sh
-fi
+apt-get install -y python3-venv python3-pip
 
-if [ "$(id -u)" -eq 1000 ]
-then
-pushd ansible-pc
-bash 1-setup/1-setup.bash
-fi
+[ ! -d "venv" ] && python3 -m venv venv
+source venv/bin/activate
+pip3 install ansible
+
+ansible-galaxy collection install -r requirements.yml
+ansible-galaxy role install -r requirements.yml
+ansible-playbook setup/playbook.yml

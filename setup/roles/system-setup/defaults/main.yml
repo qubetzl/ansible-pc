@@ -1,0 +1,8 @@
+---
+user_to_create: qubetzl
+
+# https://wiki.debian.org/KDE
+debian_repo_packages:
+  - sudo
+  # - task-kde-desktop
+  # - sddm-theme-debian-breeze

@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+
+  pre_tasks:
+    - name: Update APT cache
+      apt:
+        update_cache: true
+      changed_when: false
+
+  roles:
+    - role: ./roles/system-setup
+    # - role: ./roles/user-setup
+    #   become: true
+    #   become_user: qubetzl
