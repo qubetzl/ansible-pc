@@ -4,6 +4,10 @@ user_to_create: qubetzl
 # https://wiki.debian.org/KDE
 debian_repo_packages:
   - sudo
+  - vim
   - kde-standard
+  - vlc
+  - etckeeper
+  - gddrescue
   # - task-kde-desktop
   # - sddm-theme-debian-breeze
