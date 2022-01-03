@@ -78,16 +78,10 @@ SCRIPT
   # wget https://raw.githubusercontent.com/qubetzl/ansible-pc/master/bootstrap.bash && bash bootstrap.bash
   # wget -qO- https://raw.githubusercontent.com/qubetzl/ansible-pc/master/bootstrap.bash | bash
 
-  # config.ssh.username = 'root'
-  # config.ssh.password = 'vagrant'
   config.ssh.insert_key = false
-  # Disable folder syncing to the created VMs
-  config.vm.synced_folder ".", "/vagrant", disabled: true
-  # VM constraints, so they are not as heavy
+  # Give the VM a little bit more _umpf_
   config.vm.provider :virtualbox do |vbox|
     vbox.gui = true
     vbox.memory = 2048
-    # vbox.memory = 512
-    # vbox.linked_clone = true
   end
 end
