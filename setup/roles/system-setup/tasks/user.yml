@@ -10,11 +10,11 @@
     shell: '/usr/bin/bash'
     generate_ssh_key: true
     ssh_key_bits: 4096
-- name: Copy repository into user's home directory
-  copy:
-    src: /root/ansible-pc/
-    dest: /home/qubetzl/ansible-pc/
-    remote_src: true
-    owner: "{{ user_to_create }}"
-    group: "{{ user_to_create }}"
-    mode: 'u=rwx,g=r,o=r'
+# - name: Copy repository into user's home directory
+#   copy:
+#     src: /root/ansible-pc/
+#     dest: /home/qubetzl/ansible-pc/
+#     remote_src: true
+#     owner: "{{ user_to_create }}"
+#     group: "{{ user_to_create }}"
+#     mode: 'u=rwx,g=r,o=r'
