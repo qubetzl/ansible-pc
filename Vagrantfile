@@ -81,6 +81,10 @@ SCRIPT
   # wget https://raw.githubusercontent.com/qubetzl/ansible-pc/master/bootstrap.bash && bash bootstrap.bash
   # wget -qO- https://raw.githubusercontent.com/qubetzl/ansible-pc/master/bootstrap.bash | bash
 
+  # Sync a folder in order to presist pip's cache directory.
+  config.vm.synced_folder ".vagrant-pip-cache/", "/root/.cache/pip/",
+    owner: "root", group: "root"
+
   config.ssh.insert_key = false
   # Give the VM a little bit more _umpf_
   config.vm.provider :virtualbox do |vbox|
