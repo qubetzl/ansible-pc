@@ -83,5 +83,6 @@ SCRIPT
   config.vm.provider :virtualbox do |vbox|
     vbox.gui = true
     vbox.memory = 2048
+    vbox.cpus = 4
   end
 end
