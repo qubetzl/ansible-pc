@@ -58,11 +58,7 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  $script_ssh = <<-SCRIPT
-    # echo "sudo -i" >> .bashrc
-    # echo "sudo -i -u qubetzl" >> .bashrc
-SCRIPT
-  $script_1 = <<-SCRIPT
+  $script = <<-SCRIPT
     # Set http caching proxy to speed-up process.
     echo 'Acquire::http { Proxy "http://10.11.0.1:3128"; }' | sudo tee /etc/apt/apt.conf.d/proxy
     echo 'export http_proxy="http://10.11.0.1:3128"' | sudo tee /etc/profile.d/proxy.sh
@@ -70,14 +66,8 @@ SCRIPT
     cd /root/
     wget -qO- https://raw.githubusercontent.com/qubetzl/ansible-pc/master/bootstrap.bash | bash
 SCRIPT
-  $script_2 = <<-SCRIPT
-    sudo -i -u qubetzl
-    cd /home/qubetzl/ansible-pc
-    git pull --rebase
-    1-setup/1-setup.bash
-SCRIPT
 
-  config.vm.provision "shell", inline: $script_1
+  config.vm.provision "shell", inline: $script
   # wget https://raw.githubusercontent.com/qubetzl/ansible-pc/master/bootstrap.bash && bash bootstrap.bash
   # wget -qO- https://raw.githubusercontent.com/qubetzl/ansible-pc/master/bootstrap.bash | bash
 
