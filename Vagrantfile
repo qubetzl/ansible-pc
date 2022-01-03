@@ -85,7 +85,7 @@ SCRIPT
   # Give the VM a little bit more _umpf_
   config.vm.provider :virtualbox do |vbox|
     vbox.gui = true
-    vbox.memory = 2048
+    vbox.memory = 4096
     vbox.cpus = 4
   end
 end
