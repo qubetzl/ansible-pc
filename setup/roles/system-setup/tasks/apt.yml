@@ -1,0 +1,12 @@
+---
+- name: Setup APT sources
+  template:
+    src: sources.list.j2
+    dest: /etc/apt/sources.list
+    owner: root
+    group: root
+    mode: u=rw,g=r,o=r
+  notify:
+    - Update APT Cache
+- name: Update APT cache if necessary
+  meta: flush_handlers
