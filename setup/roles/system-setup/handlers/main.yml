@@ -1,0 +1,4 @@
+---
+- name: Update APT Cache
+  apt:
+    update_cache: true
