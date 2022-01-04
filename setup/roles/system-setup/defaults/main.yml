@@ -9,5 +9,10 @@ debian_repo_packages:
   - vlc
   - etckeeper
   - gddrescue
+  - hwloc
+  - htop
+  - gparted
+  - qdirstat
+  - filelight
   # - task-kde-desktop
   # - sddm-theme-debian-breeze
