@@ -14,5 +14,8 @@ debian_repo_packages:
   - gparted
   - qdirstat
   - filelight
+  - piper
+  - keepass2
+  - yubikey-personalization-gui
   # - task-kde-desktop
   # - sddm-theme-debian-breeze
