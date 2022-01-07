@@ -17,7 +17,7 @@ SCRIPT
 
   # Sync a folder in order to presist pip's cache directory.
   config.vm.synced_folder ".vagrant-pip-cache/", "/root/.cache/pip/",
-    owner: "root", group: "root"
+    owner: "root", group: "root", create: true
 
   config.ssh.insert_key = false
   # Give the VM a little bit more _umpf_
