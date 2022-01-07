@@ -10,6 +10,7 @@ debian_repo_packages:
   - etckeeper
   - gddrescue
   - hwloc
+  - firmware-iwlwifi
   - htop
   - gparted
   - qdirstat
