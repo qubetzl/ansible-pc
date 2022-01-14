@@ -1,22 +1,53 @@
 ---
 user_to_create: qubetzl
 
-# https://wiki.debian.org/KDE
-debian_repo_packages:
+install_gui: true
+
+base_system_packages:
   - sudo
   - vim
-  - kde-standard
-  - vlc
+  - git
+  - less
+  - tree
+  - xxd
+  - powerline
   - etckeeper
   - gddrescue
-  - hwloc
-  - firmware-iwlwifi
+  - testdisk
   - htop
-  - gparted
+  - net-tools
+  - apt-file
+  - bsdutils
+  - debtree
+  - ethtool
+  - fdisk
+  - ntfs-3g
+  - gnupg
+  - usbutils
+  - tcpdump
+  - telnet
+  - unrar
+  - rsync
+  - lm-sensors
+  - iperf3
+  - smbclient
+  - linux-headers-amd64
+  - shim-signed
+  - firmware-linux
+
+gui_system_packages:
+  - kde-standard  # https://wiki.debian.org/KDE
+  - markdownpart  # Markdown plugin for Kate
+  - qml-module-qtgraphicaleffects  # Weather Widget
+  - qml-module-qtquick-xmllistmodel  # Weather Widget
+  # - sddm-theme-debian-breeze
   - qdirstat
   - filelight
-  - piper
-  - keepass2
   - yubikey-personalization-gui
-  # - task-kde-desktop
-  # - sddm-theme-debian-breeze
+  - vlc
+  - gparted
+  - keepass2
+  - python-is-python3  # youtube-dl
+  - tigervnc-viewer
+  - flatpak
+  - flatpak-xdg-utils

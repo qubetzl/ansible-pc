@@ -1,8 +1,6 @@
 ---
 - import_tasks: user.yml
 - import_tasks: apt.yml
-- name: Make sure Debian repo packages are installed
-  apt:
-    name: "{{ item }}"
-    state: present
-  loop: "{{ debian_repo_packages }}"
+- import_tasks: base.yml
+- import_tasks: gui.yml
+  when: install_gui

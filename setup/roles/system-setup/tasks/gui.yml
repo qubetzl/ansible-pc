@@ -1,0 +1,6 @@
+---
+- name: Make sure GUI system packages are installed
+  apt:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ gui_system_packages }}"

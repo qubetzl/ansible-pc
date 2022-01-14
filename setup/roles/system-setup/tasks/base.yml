@@ -1,0 +1,6 @@
+---
+- name: Make sure base system packages are installed
+  apt:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ base_system_packages }}"
