@@ -8,8 +8,6 @@
     password: '{{ "pass" | password_hash("sha512") }}'
     update_password: on_create
     shell: '/usr/bin/bash'
-    generate_ssh_key: true
-    ssh_key_bits: 4096
 # - name: Copy repository into user's home directory
 #   copy:
 #     src: /root/ansible-pc/
